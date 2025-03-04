@@ -1,0 +1,258 @@
+/* Стили для контейнера */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #111;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Стили для заголовка */
+h1.title {
+    font-size: 50px;
+    font-weight: bold;
+    letter-spacing: 10px;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    color: #fff;
+    animation: fadeIn 2s ease-out;
+}
+
+/* Анимация появления заголовка */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Стили для кнопок */
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.menu-btn {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #000; /* Белый текст на ховере */
+    background-color: #fff; /* Черный фон на ховере */
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    letter-spacing: 6px;
+}
+
+    /* Эффекты при наведении */
+    .menu-btn:hover {
+        background-color: #3498db;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+        transform: translateY(-5px);
+    }
+
+    .menu-btn:active {
+        transform: translateY(0);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+/* Анимация появления кнопок */
+.menu-btn {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+    /* Плавная анимация появления */
+    .menu-btn:nth-child(1) {
+        animation: fadeInBtn 1s ease-out 0.3s forwards;
+    }
+
+    .menu-btn:nth-child(2) {
+        animation: fadeInBtn 1s ease-out 0.6s forwards;
+    }
+
+    .menu-btn:nth-child(3) {
+        animation: fadeInBtn 1s ease-out 0.9s forwards;
+    }
+
+/* Ключевая анимация для кнопок */
+@keyframes fadeInBtn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Стили для страницы концептов */
+.concept-page {
+    display: flex;
+    flex-direction: column; /* Элементы идут сверху вниз */
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+    background-color: #000; /* Черный фон */
+    margin: 0;
+    color: #fff; /* Белый цвет текста */
+}
+
+/* Стили для заголовка */
+.concept-title {
+    font-size: 20px; /* Сделаем "Concept" поменьше */
+    font-weight: bold;
+    letter-spacing: 5px;
+    padding-top: 15px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    color: #fff; /* Белый цвет */
+
+    letter-spacing: 9px;
+}
+
+/* Стили для ссылки на главную */
+/* Стили для ссылки на главную */
+.back-link {
+    display: block;
+    text-align: center;
+    letter-spacing: 9px;
+    margin-top: 20px;
+    font-size: 48px;
+    text-decoration: none;
+    color: #000; /* Белый текст на ховере */
+    background-color: #fff; /* Черный фон на ховере */
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    max-width: auto; /* Ограничение ширины, чтобы кнопка не была слишком большой */
+    margin-left: auto; /* Центрирование кнопки */
+    margin-right: auto; /* Центрирование кнопки */
+    white-space: nowrap; /* Это предотвратит перенос текста на новую строку */
+}
+
+    .back-link:hover {
+        color: #000; /* Белый текст на ховере */
+        background-color: #fff; /* Черный фон на ховере */
+/*        background-color: #3498db;*/
+        transform: translateY(-5px);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .back-link:active {
+        transform: translateY(0);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+/* Анимация появления текста */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+/* Стили для галереи концептов */
+.concept-gallery {
+    /*display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));*/ /* Сетка с колонками */
+    gap: 15px;
+    padding: 20px;
+    max-width: 1600px;
+    margin-top: 20px;
+}
+
+.concept-item {
+    margin: 4px;
+    /*    width: 380px;
+    height: 380px;*/
+    width: auto;
+    height: 380px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+    .concept-item:hover {
+        transform: scale(1.05); /* Увеличение при наведении */
+    }
+
+/* Модальное окно */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    z-index: 2000;
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .concept-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}
+

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        .concept-item {
+            width: 400px;
+            height: 225px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            cursor: pointer;
+        }
+
+            .concept-item:hover {
+                transform: scale(1.05);
+            }
+
+        /* Модальное окно */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-content {
+            width: 80%;
+            height: 50%;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+            z-index: 2000;
+        }
+    </style>
+</head>
+<body class="concept-page">
+    <a href="index.html" class="back-link">M U K A I</a>
+    <h1 class="concept-title">Animation</h1>
+    <div class="concept-gallery">
+        <video class="concept-item" preload="auto" muted loop autoplay onclick="openModal(this)">
+            <source src="9.mp4" type="video/mp4">
+            Ваш браузер не поддерживает видео.
+        </video>
+        <video class="concept-item" preload="auto" muted loop autoplay onclick="openModal(this)">
+            <source src="123.mp4" type="video/mp4">
+            Ваш браузер не поддерживает видео.
+        </video>
+
+
+        <video class="concept-item" preload="auto" muted loop autoplay onclick="openModal(this)">
+            <source src="11.mp4" type="video/mp4">
+            Ваш браузер не поддерживает видео.
+        </video>
+        <video class="concept-item" preload="auto" muted loop autoplay onclick="openModal(this)">
+            <source src="12.mp4" type="video/mp4">
+            Ваш браузер не поддерживает видео.
+        </video>
+        <video class="concept-item" preload="auto" muted loop autoplay onclick="openModal(this)">
+            <source src="10.mp4" type="video/mp4">
+            Ваш браузер не поддерживает видео.
+        </video>
+
+        <video class="concept-item" preload="auto" muted loop autoplay onclick="openModal(this)">
+            <source src="14.mp4" type="video/mp4">
+            Ваш браузер не поддерживает видео.
+        </video>
+        <video class="concept-item" preload="auto" muted loop autoplay onclick="openModal(this)">
+            <source src="15.mp4" type="video/mp4">
+            Ваш браузер не поддерживает видео.
+        </video>
+        <video class="concept-item" preload="auto" muted loop autoplay onclick="openModal(this)">
+            <source src="13.mp4" type="video/mp4">
+            Ваш браузер не поддерживает видео.
+        </video>
+        <video class="concept-item" preload="auto" muted loop autoplay onclick="openModal(this)">
+            <source src="17.mp4" type="video/mp4">
+            Ваш браузер не поддерживает видео.
+        </video>
+    </div>
+    </div>
+
+    <div id="modal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <video class="modal-content" id="modal-video" controls>
+            Ваш браузер не поддерживает видео.
+        </video>
+    </div>
+
+    <script>
+        // Открытие модального окна с видео
+        function openModal(videoElement) {
+            console.log("Нажато на видео: ", videoElement.src);  // Лог для проверки
+            var modalVideo = document.getElementById("modal-video");
+
+            // Устанавливаем видео в модальном окне
+            modalVideo.src = videoElement.src;
+
+            // Ожидаем, пока видео загрузится
+            modalVideo.addEventListener('loadeddata', function () {
+                console.log("Видео загружено и готово к воспроизведению"); // Лог для проверки
+                document.getElementById("modal").style.display = "flex"; // Показываем модальное окно
+                modalVideo.play(); // Запускаем видео
+            }, { once: true });
+
+            modalVideo.addEventListener('error', function () {
+                console.log("Ошибка при загрузке видео."); // Лог для ошибки
+            });
+        }
+
+        // Закрытие модального окна
+        function closeModal() {
+            var modalVideo = document.getElementById("modal-video");
+            modalVideo.pause(); // Ставим на паузу
+            modalVideo.currentTime = 0; // Сбрасываем время
+            document.getElementById("modal").style.display = "none"; // Закрываем модалку
+        }
+
+        window.onload = function () {
+            gsap.from(".concept-item", {
+                opacity: 0,
+                duration: 1,
+                stagger: 0.2
+            });
+        }
+    </script>
+</body>
+</html>
