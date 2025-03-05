@@ -52,48 +52,72 @@
             cursor: pointer;
             z-index: 2000;
         }
+        .video-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .video-menu {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .video-container:hover .video-menu {
+            opacity: 1;
+            visibility: visible;
+        }
+
     </style>
 </head>
 <body class="concept-page">
     <a href="index.html" class="back-link">M U K A I</a>
     <h1 class="concept-title">Animation</h1>
     <div class="concept-gallery">
-        <video class="concept-item" preload="auto" muted loop autoplay onclick="openModal(this)">
+        <video class="concept-item" controls preload="auto" muted loop autoplay onclick="openModal(this)">
             <source src="9.mp4" type="video/mp4">
             Ваш браузер не поддерживает видео.
         </video>
-        <video class="concept-item" preload="auto" muted loop autoplay onclick="openModal(this)">
+        <video class="concept-item" controls  preload="auto" muted loop autoplay onclick="openModal(this)">
             <source src="123.mp4" type="video/mp4">
             Ваш браузер не поддерживает видео.
         </video>
 
 
-        <video class="concept-item" preload="auto" muted loop autoplay onclick="openModal(this)">
+        <video class="concept-item" controls preload="auto" muted loop autoplay onclick="openModal(this)">
             <source src="11.mp4" type="video/mp4">
             Ваш браузер не поддерживает видео.
         </video>
-        <video class="concept-item" preload="auto" muted loop autoplay onclick="openModal(this)">
+        <video class="concept-item" controls preload="auto" muted loop autoplay onclick="openModal(this)">
             <source src="12.mp4" type="video/mp4">
             Ваш браузер не поддерживает видео.
         </video>
-        <video class="concept-item" preload="auto" muted loop autoplay onclick="openModal(this)">
+        <video class="concept-item" controls  preload="auto" muted loop autoplay onclick="openModal(this)">
             <source src="10.mp4" type="video/mp4">
             Ваш браузер не поддерживает видео.
         </video>
 
-        <video class="concept-item" preload="auto" muted loop autoplay onclick="openModal(this)">
+        <video class="concept-item" controls  preload="auto" muted loop autoplay onclick="openModal(this)">
             <source src="14.mp4" type="video/mp4">
             Ваш браузер не поддерживает видео.
         </video>
-        <video class="concept-item" preload="auto" muted loop autoplay onclick="openModal(this)">
+        <video class="concept-item" controls preload="auto" muted loop autoplay onclick="openModal(this)">
             <source src="15.mp4" type="video/mp4">
             Ваш браузер не поддерживает видео.
         </video>
-        <video class="concept-item" preload="auto" muted loop autoplay onclick="openModal(this)">
+        <video class="concept-item" controls  preload="auto" muted loop autoplay onclick="openModal(this)">
             <source src="13.mp4" type="video/mp4">
             Ваш браузер не поддерживает видео.
         </video>
-        <video class="concept-item" preload="auto" muted loop autoplay onclick="openModal(this)">
+        <video class="concept-item" controls  preload="auto" muted loop autoplay onclick="openModal(this)">
             <source src="17.mp4" type="video/mp4">
             Ваш браузер не поддерживает видео.
         </video>
@@ -136,9 +160,7 @@
             document.getElementById("modal").style.display = "none"; // Закрываем модалку
         }
 
-        window.onload = function () {
-           
-        }
+       
     </script>
 </body>
 </html>

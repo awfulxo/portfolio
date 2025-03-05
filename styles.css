@@ -115,7 +115,7 @@ h1.title {
     justify-content: flex-start;
     align-items: center;
     height: 100vh;
-    background-color: #000; /* Черный фон */
+    background-color: #111; /* Черный фон */
     margin: 0;
     color: #fff; /* Белый цвет текста */
 }
@@ -238,6 +238,8 @@ h1.title {
     cursor: pointer;
     z-index: 2000;
 }
+
+
 
 /* Анимации */
 @keyframes fadeIn {

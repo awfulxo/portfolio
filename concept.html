@@ -46,11 +46,12 @@
             document.getElementById("modal").style.display = "none";
         }
 
-        window.onload = function () {
-            // Анимация для кнопки "Main Page"
-            
-          
-        }
+
+        document.getElementById("modal").addEventListener("click", function (e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
     </script>
 </body>
 </html>
