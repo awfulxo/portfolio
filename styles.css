@@ -224,8 +224,8 @@ h1.title {
 }
 
 .modal-content {
-    max-width: 100%;
-    max-height: 100%;
+    width: 100vw;
+    height: 100vh;
     object-fit: contain;
 }
 
@@ -239,7 +239,36 @@ h1.title {
     z-index: 2000;
 }
 
+#modal-content-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.modal-video {
+    width: 800px;
+    height: 800px;
+    object-fit: contain; /* Чтобы видео не обрезалось */
+    border-radius: 10px;
+}
+
+.concept-item {
+    margin: 4px;
+    /*    width: 380px;
+    height: 380px;*/
+    width: auto;
+    height: 380px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+    .concept-item:hover {
+        transform: scale(1.05); /* Увеличение при наведении */
+    }
 
 /* Анимации */
 @keyframes fadeIn {

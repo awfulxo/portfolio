@@ -126,40 +126,48 @@
 
     <div id="modal" class="modal">
         <span class="close" onclick="closeModal()">&times;</span>
-        <video class="modal-content" id="modal-video" controls>
-            Ваш браузер не поддерживает видео.
-        </video>
+        <div id="modal-content-container"></div>
     </div>
 
     <script>
         // Открытие модального окна с видео
         function openModal(videoElement) {
-            console.log("Нажато на видео: ", videoElement.src);  // Лог для проверки
-            var modalVideo = document.getElementById("modal-video");
+            console.log("Нажато на видео: ", videoElement.src); // Логирование
 
-            // Устанавливаем видео в модальном окне
-            modalVideo.src = videoElement.src;
+            var modal = document.getElementById("modal");
+            var modalContainer = document.getElementById("modal-content-container");
 
-            // Ожидаем, пока видео загрузится
-            modalVideo.addEventListener('loadeddata', function () {
-                console.log("Видео загружено и готово к воспроизведению"); // Лог для проверки
-                document.getElementById("modal").style.display = "flex"; // Показываем модальное окно
-                modalVideo.play(); // Запускаем видео
-            }, { once: true });
+            // Удаляем предыдущее видео, если есть
+            modalContainer.innerHTML = "";
 
-            modalVideo.addEventListener('error', function () {
-                console.log("Ошибка при загрузке видео."); // Лог для ошибки
-            });
+            // Клонируем оригинальное видео
+            var clonedVideo = videoElement.cloneNode(true);
+            clonedVideo.classList.add("modal-video"); // Добавляем класс, если нужно
+            clonedVideo.controls = true; // Включаем управление
+            clonedVideo.autoplay = true; // Автовоспроизведение
+            // Устанавливаем размеры прямо в JS
+            clonedVideo.style.width = "90vw";  // 90% ширины окна
+            clonedVideo.style.height = "90vh"; // 90% высоты окна
+            clonedVideo.style.objectFit = "contain"; // Чтобы не обрезалось
+            clonedVideo.style.backgroundColor = "#111"; // Используем camelCase
+            //clonedVideo.style
+            // Добавляем в контейнер
+            modalContainer.appendChild(clonedVideo);
+
+            // Показываем модальное окно
+            modal.style.display = "flex";
         }
 
-        // Закрытие модального окна
         function closeModal() {
-            var modalVideo = document.getElementById("modal-video");
-            modalVideo.pause(); // Ставим на паузу
-            modalVideo.currentTime = 0; // Сбрасываем время
-            document.getElementById("modal").style.display = "none"; // Закрываем модалку
-        }
+            var modal = document.getElementById("modal");
+            var modalContainer = document.getElementById("modal-content-container");
 
+            // Очищаем контейнер (чтобы видео остановилось)
+            modalContainer.innerHTML = "";
+
+            // Закрываем модалку
+            modal.style.display = "none";
+        }
        
     </script>
 </body>
