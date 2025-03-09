@@ -52,10 +52,7 @@
             cursor: pointer;
             z-index: 2000;
         }
-        .video-container {
-            position: relative;
-            display: inline-block;
-        }
+        
 
         .video-menu {
             position: absolute;
@@ -70,10 +67,38 @@
             opacity: 0;
             visibility: hidden;
         }
+        .video-container {
+            position: relative;
+            display: inline-block;
+        }
 
-        .video-container:hover .video-menu {
+        .video-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none; /* Чтобы клики проходили на видео */
+        }
+
+        .video-container:hover .video-overlay {
             opacity: 1;
-            visibility: visible;
+        }
+
+        /* Иконка (SVG) */
+        .video-overlay img {
+            width: 50px;
+            height: 50px;
+            filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.5));
+        }
+
+        video::-webkit-media-controls-fullscreen-button {
+            display: none !important;
+        }
+
+        video::-webkit-media-controls-enclosure {
+            overflow: hidden;
         }
 
     </style>
@@ -82,45 +107,96 @@
     <a href="index.html" class="back-link">M U K A I</a>
     <h1 class="concept-title">Animation</h1>
     <div class="concept-gallery">
-        <video class="concept-item" controls preload="auto" muted loop autoplay onclick="openModal(this)">
-            <source src="9.mp4" type="video/mp4">
-            Ваш браузер не поддерживает видео.
-        </video>
-        <video class="concept-item" controls  preload="auto" muted loop autoplay onclick="openModal(this)">
-            <source src="123.mp4" type="video/mp4">
-            Ваш браузер не поддерживает видео.
-        </video>
+        <div class="video-container">
+            <video class="concept-item" controls preload="auto" muted loop autoplay onclick="openModal(this)" disablePictureInPicture>
+                <source src="9.mp4" type="video/mp4">
+                Ваш браузер не поддерживает видео.
+            </video>
+            <div class="video-overlay">
+                <img src="zoom-icon.png" alt="Нажмите для увеличения">
+            </div>
+        </div>
 
+        <div class="video-container">
+            <video class="concept-item" controls preload="auto" muted loop autoplay onclick="openModal(this)">
+                <source src="123.mp4" type="video/mp4">
+                Ваш браузер не поддерживает видео.
+            </video>
+            <div class="video-overlay">
+                <img src="zoom-icon.png" alt="Нажмите для увеличения">
+            </div>
+        </div>
 
-        <video class="concept-item" controls preload="auto" muted loop autoplay onclick="openModal(this)">
-            <source src="11.mp4" type="video/mp4">
-            Ваш браузер не поддерживает видео.
-        </video>
-        <video class="concept-item" controls preload="auto" muted loop autoplay onclick="openModal(this)">
-            <source src="12.mp4" type="video/mp4">
-            Ваш браузер не поддерживает видео.
-        </video>
-        <video class="concept-item" controls  preload="auto" muted loop autoplay onclick="openModal(this)">
-            <source src="10.mp4" type="video/mp4">
-            Ваш браузер не поддерживает видео.
-        </video>
+        <div class="video-container">
+            <video class="concept-item" controls preload="auto" muted loop autoplay onclick="openModal(this)">
+                <source src="11.mp4" type="video/mp4">
+                Ваш браузер не поддерживает видео.
+            </video>
+            <div class="video-overlay">
+                <img src="zoom-icon.png" alt="Нажмите для увеличения">
+            </div>
+        </div>
 
-        <video class="concept-item" controls  preload="auto" muted loop autoplay onclick="openModal(this)">
-            <source src="14.mp4" type="video/mp4">
-            Ваш браузер не поддерживает видео.
-        </video>
-        <video class="concept-item" controls preload="auto" muted loop autoplay onclick="openModal(this)">
-            <source src="15.mp4" type="video/mp4">
-            Ваш браузер не поддерживает видео.
-        </video>
-        <video class="concept-item" controls  preload="auto" muted loop autoplay onclick="openModal(this)">
-            <source src="13.mp4" type="video/mp4">
-            Ваш браузер не поддерживает видео.
-        </video>
-        <video class="concept-item" controls  preload="auto" muted loop autoplay onclick="openModal(this)">
-            <source src="17.mp4" type="video/mp4">
-            Ваш браузер не поддерживает видео.
-        </video>
+        <div class="video-container">
+            <video class="concept-item" controls preload="auto" muted loop autoplay onclick="openModal(this)">
+                <source src="12.mp4" type="video/mp4">
+                Ваш браузер не поддерживает видео.
+            </video>
+            <div class="video-overlay">
+                <img src="zoom-icon.png" alt="Нажмите для увеличения">
+            </div>
+        </div>
+
+        <div class="video-container">
+            <video class="concept-item" controls preload="auto" muted loop autoplay onclick="openModal(this)">
+                <source src="10.mp4" type="video/mp4">
+                Ваш браузер не поддерживает видео.
+            </video>
+            <div class="video-overlay">
+                <img src="zoom-icon.png" alt="Нажмите для увеличения">
+            </div>
+        </div>
+
+        <div class="video-container">
+            <video class="concept-item" controls preload="auto" muted loop autoplay onclick="openModal(this)">
+                <source src="14.mp4" type="video/mp4">
+                Ваш браузер не поддерживает видео.
+            </video>
+            <div class="video-overlay">
+                <img src="zoom-icon.png" alt="Нажмите для увеличения">
+            </div>
+        </div>
+
+        <div class="video-container">
+            <video class="concept-item" controls preload="auto" muted loop autoplay onclick="openModal(this)">
+                <source src="15.mp4" type="video/mp4">
+                Ваш браузер не поддерживает видео.
+            </video>
+            <div class="video-overlay">
+                <img src="zoom-icon.png" alt="Нажмите для увеличения">
+            </div>
+        </div>
+
+        <div class="video-container">
+            <video class="concept-item" controls preload="auto" muted loop autoplay onclick="openModal(this)">
+                <source src="13.mp4" type="video/mp4">
+                Ваш браузер не поддерживает видео.
+            </video>
+            <div class="video-overlay">
+                <img src="zoom-icon.png" alt="Нажмите для увеличения">
+            </div>
+        </div>
+
+        <div class="video-container">
+            <video class="concept-item" controls preload="auto" muted loop autoplay onclick="openModal(this)">
+                <source src="17.mp4" type="video/mp4">
+                Ваш браузер не поддерживает видео.
+            </video>
+            <div class="video-overlay">
+                <img src="zoom-icon.png" alt="Нажмите для увеличения">
+            </div>
+        </div>
+
     </div>
     </div>
 
@@ -130,6 +206,15 @@
     </div>
 
     <script>
+        document.querySelectorAll('video').forEach(video => {
+            video.addEventListener('fullscreenchange', (event) => {
+                event.preventDefault();
+            });
+            video.addEventListener('webkitfullscreenchange', (event) => {
+                event.preventDefault();
+            });
+            video.disablePictureInPicture = true; // Блокируем режим "Картинка в картинке"
+        });
         // Открытие модального окна с видео
         function openModal(videoElement) {
             console.log("Нажато на видео: ", videoElement.src); // Логирование
