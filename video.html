@@ -241,8 +241,14 @@
 
             // Показываем модальное окно
             modal.style.display = "flex";
+            document.getElementById("modal").addEventListener("click", function (event) {
+                if (event.target !== this) {  // Проверяем, что клик был по фону, а не по видео
+                    closeModal();
+                }
+            });
         }
-
+        // Закрытие модалки при клике на пустое место
+    
         function closeModal() {
             var modal = document.getElementById("modal");
             var modalContainer = document.getElementById("modal-content-container");
