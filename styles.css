@@ -1,7 +1,6 @@
-/* Стили для контейнера */
+/* Г‘ГІГЁГ«ГЁ Г¤Г«Гї ГЄГ®Г­ГІГҐГ©Г­ГҐГ°Г  */
 body {
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(to bottom, #222222 10%, #111111 90%);
     margin: 0;
     padding: 0;
     background-color: #111;
@@ -19,7 +18,7 @@ body {
     align-items: center;
 }
 
-/* Стили для заголовка */
+/* Г‘ГІГЁГ«ГЁ Г¤Г«Гї Г§Г ГЈГ®Г«Г®ГўГЄГ  */
 h1.title {
     font-size: 50px;
     font-weight: bold;
@@ -30,7 +29,7 @@ h1.title {
     animation: fadeIn 2s ease-out;
 }
 
-/* Анимация появления заголовка */
+/* ГЂГ­ГЁГ¬Г Г¶ГЁГї ГЇГ®ГїГўГ«ГҐГ­ГЁГї Г§Г ГЈГ®Г«Г®ГўГЄГ  */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -43,7 +42,7 @@ h1.title {
     }
 }
 
-/* Стили для кнопок */
+/* Г‘ГІГЁГ«ГЁ Г¤Г«Гї ГЄГ­Г®ГЇГ®ГЄ */
 .menu {
     display: flex;
     flex-direction: column;
@@ -57,15 +56,15 @@ h1.title {
     font-weight: bold;
     text-transform: uppercase;
     text-decoration: none;
-    color: #000; /* Белый текст на ховере */
-    background-color: #fff; /* Черный фон на ховере */
+    color: #000; /* ГЃГҐГ«Г»Г© ГІГҐГЄГ±ГІ Г­Г  ГµГ®ГўГҐГ°ГҐ */
+    background-color: #fff; /* Г—ГҐГ°Г­Г»Г© ГґГ®Г­ Г­Г  ГµГ®ГўГҐГ°ГҐ */
     border-radius: 5px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
     letter-spacing: 6px;
 }
 
-    /* Эффекты при наведении */
+    /* ГќГґГґГҐГЄГІГ» ГЇГ°ГЁ Г­Г ГўГҐГ¤ГҐГ­ГЁГЁ */
     .menu-btn:hover {
         background-color: #3498db;
         box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
@@ -77,13 +76,13 @@ h1.title {
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     }
 
-/* Анимация появления кнопок */
+/* ГЂГ­ГЁГ¬Г Г¶ГЁГї ГЇГ®ГїГўГ«ГҐГ­ГЁГї ГЄГ­Г®ГЇГ®ГЄ */
 .menu-btn {
     opacity: 0;
     transform: translateY(30px);
 }
 
-    /* Плавная анимация появления */
+    /* ГЏГ«Г ГўГ­Г Гї Г Г­ГЁГ¬Г Г¶ГЁГї ГЇГ®ГїГўГ«ГҐГ­ГЁГї */
     .menu-btn:nth-child(1) {
         animation: fadeInBtn 1s ease-out 0.3s forwards;
     }
@@ -96,7 +95,7 @@ h1.title {
         animation: fadeInBtn 1s ease-out 0.9s forwards;
     }
 
-/* Ключевая анимация для кнопок */
+/* ГЉГ«ГѕГ·ГҐГўГ Гї Г Г­ГЁГ¬Г Г¶ГЁГї Г¤Г«Гї ГЄГ­Г®ГЇГ®ГЄ */
 @keyframes fadeInBtn {
     from {
         opacity: 0;
@@ -109,33 +108,33 @@ h1.title {
     }
 }
 
-/* Стили для страницы концептов */
+/* Г‘ГІГЁГ«ГЁ Г¤Г«Гї Г±ГІГ°Г Г­ГЁГ¶Г» ГЄГ®Г­Г¶ГҐГЇГІГ®Гў */
 .concept-page {
     display: flex;
-    flex-direction: column; /* Элементы идут сверху вниз */
+    flex-direction: column; /* ГќГ«ГҐГ¬ГҐГ­ГІГ» ГЁГ¤ГіГІ Г±ГўГҐГ°ГµГі ГўГ­ГЁГ§ */
     justify-content: flex-start;
     align-items: center;
     height: 100vh;
-    background-color: #111; /* Черный фон */
+    background-color: #111; /* Г—ГҐГ°Г­Г»Г© ГґГ®Г­ */
     margin: 0;
-    color: #fff; /* Белый цвет текста */
+    color: #fff; /* ГЃГҐГ«Г»Г© Г¶ГўГҐГІ ГІГҐГЄГ±ГІГ  */
 }
 
-/* Стили для заголовка */
+/* Г‘ГІГЁГ«ГЁ Г¤Г«Гї Г§Г ГЈГ®Г«Г®ГўГЄГ  */
 .concept-title {
-    font-size: 20px; /* Сделаем "Concept" поменьше */
+    font-size: 20px; /* Г‘Г¤ГҐГ«Г ГҐГ¬ "Concept" ГЇГ®Г¬ГҐГ­ГјГёГҐ */
     font-weight: bold;
     letter-spacing: 5px;
     padding-top: 15px;
     margin-bottom: 20px;
     text-transform: uppercase;
-    color: #fff; /* Белый цвет */
+    color: #fff; /* ГЃГҐГ«Г»Г© Г¶ГўГҐГІ */
 
     letter-spacing: 9px;
 }
 
-/* Стили для ссылки на главную */
-/* Стили для ссылки на главную */
+/* Г‘ГІГЁГ«ГЁ Г¤Г«Гї Г±Г±Г»Г«ГЄГЁ Г­Г  ГЈГ«Г ГўГ­ГіГѕ */
+/* Г‘ГІГЁГ«ГЁ Г¤Г«Гї Г±Г±Г»Г«ГЄГЁ Г­Г  ГЈГ«Г ГўГ­ГіГѕ */
 .back-link {
     display: block;
     text-align: center;
@@ -143,22 +142,22 @@ h1.title {
     margin-top: 20px;
     font-size: 48px;
     text-decoration: none;
-    color: #000; /* Белый текст на ховере */
-    background-color: #fff; /* Черный фон на ховере */
+    color: #000; /* ГЃГҐГ«Г»Г© ГІГҐГЄГ±ГІ Г­Г  ГµГ®ГўГҐГ°ГҐ */
+    background-color: #fff; /* Г—ГҐГ°Г­Г»Г© ГґГ®Г­ Г­Г  ГµГ®ГўГҐГ°ГҐ */
     font-weight: bold;
     padding: 10px 20px;
     border-radius: 5px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
-    max-width: auto; /* Ограничение ширины, чтобы кнопка не была слишком большой */
-    margin-left: auto; /* Центрирование кнопки */
-    margin-right: auto; /* Центрирование кнопки */
-    white-space: nowrap; /* Это предотвратит перенос текста на новую строку */
+    max-width: auto; /* ГЋГЈГ°Г Г­ГЁГ·ГҐГ­ГЁГҐ ГёГЁГ°ГЁГ­Г», Г·ГІГ®ГЎГ» ГЄГ­Г®ГЇГЄГ  Г­ГҐ ГЎГ»Г«Г  Г±Г«ГЁГёГЄГ®Г¬ ГЎГ®Г«ГјГёГ®Г© */
+    margin-left: auto; /* Г–ГҐГ­ГІГ°ГЁГ°Г®ГўГ Г­ГЁГҐ ГЄГ­Г®ГЇГЄГЁ */
+    margin-right: auto; /* Г–ГҐГ­ГІГ°ГЁГ°Г®ГўГ Г­ГЁГҐ ГЄГ­Г®ГЇГЄГЁ */
+    white-space: nowrap; /* ГќГІГ® ГЇГ°ГҐГ¤Г®ГІГўГ°Г ГІГЁГІ ГЇГҐГ°ГҐГ­Г®Г± ГІГҐГЄГ±ГІГ  Г­Г  Г­Г®ГўГіГѕ Г±ГІГ°Г®ГЄГі */
 }
 
     .back-link:hover {
-        color: #000; /* Белый текст на ховере */
-        background-color: #fff; /* Черный фон на ховере */
+        color: #000; /* ГЃГҐГ«Г»Г© ГІГҐГЄГ±ГІ Г­Г  ГµГ®ГўГҐГ°ГҐ */
+        background-color: #fff; /* Г—ГҐГ°Г­Г»Г© ГґГ®Г­ Г­Г  ГµГ®ГўГҐГ°ГҐ */
 /*        background-color: #3498db;*/
         transform: translateY(-5px);
         box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
@@ -169,7 +168,7 @@ h1.title {
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     }
 
-/* Анимация появления текста */
+/* ГЂГ­ГЁГ¬Г Г¶ГЁГї ГЇГ®ГїГўГ«ГҐГ­ГЁГї ГІГҐГЄГ±ГІГ  */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -184,10 +183,10 @@ h1.title {
 
 
 
-/* Стили для галереи концептов */
+/* Г‘ГІГЁГ«ГЁ Г¤Г«Гї ГЈГ Г«ГҐГ°ГҐГЁ ГЄГ®Г­Г¶ГҐГЇГІГ®Гў */
 .concept-gallery {
     /*display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));*/ /* Сетка с колонками */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));*/ /* Г‘ГҐГІГЄГ  Г± ГЄГ®Г«Г®Г­ГЄГ Г¬ГЁ */
     gap: 15px;
     padding: 20px;
     max-width: 1600px;
@@ -207,10 +206,10 @@ h1.title {
 }
 
     .concept-item:hover {
-        transform: scale(1.05); /* Увеличение при наведении */
+        transform: scale(1.05); /* Г“ГўГҐГ«ГЁГ·ГҐГ­ГЁГҐ ГЇГ°ГЁ Г­Г ГўГҐГ¤ГҐГ­ГЁГЁ */
     }
 
-/* Модальное окно */
+/* ГЊГ®Г¤Г Г«ГјГ­Г®ГҐ Г®ГЄГ­Г® */
 .modal {
     position: fixed;
     top: 0;
@@ -251,7 +250,7 @@ h1.title {
 .modal-video {
     width: 800px;
     height: 800px;
-    object-fit: contain; /* Чтобы видео не обрезалось */
+    object-fit: contain; /* Г—ГІГ®ГЎГ» ГўГЁГ¤ГҐГ® Г­ГҐ Г®ГЎГ°ГҐГ§Г Г«Г®Г±Гј */
     border-radius: 10px;
 }
 
@@ -268,10 +267,10 @@ h1.title {
 }
 
     .concept-item:hover {
-        transform: scale(1.05); /* Увеличение при наведении */
+        transform: scale(1.05); /* Г“ГўГҐГ«ГЁГ·ГҐГ­ГЁГҐ ГЇГ°ГЁ Г­Г ГўГҐГ¤ГҐГ­ГЁГЁ */
     }
 
-/* Анимации */
+/* ГЂГ­ГЁГ¬Г Г¶ГЁГЁ */
 @keyframes fadeIn {
     0% {
         opacity: 0;
