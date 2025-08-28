@@ -1,0 +1,30 @@
+name: Build assets.json
+
+on:
+  push:
+    branches:
+      - main  # или master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Generate assets.json
+        run: node generate-assets.js
+
+      - name: Commit changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add assets.json
+          git commit -m "Auto-update assets.json" || echo "No changes"
+          git push
