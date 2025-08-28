@@ -17,7 +17,7 @@
       .then(r => r.json())
       .then(data => {
         const gallery = document.getElementById("concept-gallery");
-        data.illustration.forEach(img => {
+        data.Illustration.forEach(img => {
           const el = document.createElement("img");
           el.src = "assets/illustration/" + img;
           el.className = "concept-item";
