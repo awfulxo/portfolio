@@ -10,25 +10,23 @@
 <body class="concept-page">
     <a href="index.html" class="back-link">M U K A I</a>
     <h1 class="concept-title">Concept</h1>
-    <div class="concept-gallery">
+    <div id="concept-gallery" class="concept-gallery"></div>
 
-        <img src="con1.png" class="concept-item" onclick="openModal(this.src)">
-
-        <img src="con2.png" class="concept-item" onclick="openModal(this.src)">
-    
-        <img src="con3.png" class="concept-item" onclick="openModal(this.src)">
-
-        <img src="con4.jpg" class="concept-item" onclick="openModal(this.src)">
-        <img src="con7.jpg" class="concept-item" onclick="openModal(this.src)">
-          
-         <img src="con5.jpg" class="concept-item" onclick="openModal(this.src)">
-
-        <img src="con6.jpg" class="concept-item" onclick="openModal(this.src)">
-       
-
-
-
-    </div>
+    <script>
+    fetch("assets.json")
+      .then(r => r.json())
+      .then(data => {
+        const gallery = document.getElementById("concept-gallery");
+        data.concept.forEach(img => {
+          const el = document.createElement("img");
+          el.src = "assets/concept/" + img;
+          el.className = "concept-item";
+          el.onclick = () => openModal(el.src);
+          gallery.appendChild(el);
+        });
+      });
+    </script>
+</body>
 
     <div id="modal" class="modal">
         <span class="close" onclick="closeModal()">&times;</span>
