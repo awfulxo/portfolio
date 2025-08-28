@@ -3,7 +3,7 @@ name: Build assets.json
 on:
   push:
     branches:
-      - main  # или master, если у тебя ветка называется master
+      - main  # или master, если твоя ветка так называется
 
 jobs:
   build:
@@ -24,10 +24,11 @@ jobs:
       - name: Generate assets.json
         run: node generate-assets.js
 
-      # 4. Пушим изменения обратно в репо
-      - name: Push changes
-        uses: ad-m/github-push-action@v0.6.0
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: main
-          force: true
+      # 4. Пушим изменения обратно в main с токеном
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add assets.json
+          git commit -m "Auto-update assets.json" || echo "No changes to commit"
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} HEAD:main
