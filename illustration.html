@@ -10,19 +10,21 @@
 <body class="concept-page">
     <a href="index.html" class="back-link">M U K A I</a>
     <h1 class="concept-title">Illustration</h1>
-    <div class="concept-gallery">
+    <div id="concept-gallery" class="concept-gallery"></div>
 
-
-        <img src="Ilu1.png" class="concept-item" onclick="openModal(this.src)">
-        <img src="Ilu2.png" class="concept-item" onclick="openModal(this.src)">
-        
-        <img src="Ilu4.png" class="concept-item" onclick="openModal(this.src)">
-
-        <img src="Ilu5.png" class="concept-item" onclick="openModal(this.src)">
-        
-
-
-    </div>
+    <script>
+    fetch("assets.json")
+      .then(r => r.json())
+      .then(data => {
+        const gallery = document.getElementById("illustration-gallery");
+        data.illustration.forEach(img => {
+          const el = document.createElement("img");
+          el.src = "assets/illustration/" + img;
+          el.className = "concept-item";
+          gallery.appendChild(el);
+        });
+      });
+    </script>
 
     <div id="modal" class="modal">
         <span class="close" onclick="closeModal()">&times;</span>

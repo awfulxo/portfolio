@@ -106,107 +106,22 @@
 <body class="concept-page">
     <a href="index.html" class="back-link">M U K A I</a>
     <h1 class="concept-title">Animation</h1>
-    <div class="concept-gallery">
-        
+    <div id="video-gallery" class="video-gallery"></div>
 
-                <div class="video-container">
-            <video class="concept-item" controls preload="auto" muted loop autoplay onclick="openModal(this)" disablePictureInPicture>
-                <source src="ani1.mov" type="video/mp4">
-                Ваш браузер не поддерживает видео.
-            </video>
-            <div class="video-overlay">
-                <img src="zoom-icon.png" alt="Нажмите для увеличения">
-            </div>
-        </div>
-
-        <div class="video-container">
-            <video class="concept-item" controls preload="auto" muted loop autoplay onclick="openModal(this)">
-                <source src="ani2.mov" type="video/mp4">
-                Ваш браузер не поддерживает видео.
-            </video>
-            <div class="video-overlay">
-                <img src="zoom-icon.png" alt="Нажмите для увеличения">
-            </div>
-        </div>
-
-        <div class="video-container">
-            <video class="concept-item" controls preload="auto" muted loop autoplay onclick="openModal(this)">
-                <source src="ani3.mov" type="video/mp4">
-                Ваш браузер не поддерживает видео.
-            </video>
-            <div class="video-overlay">
-                <img src="zoom-icon.png" alt="Нажмите для увеличения">
-            </div>
-        </div>
-
-        <div class="video-container">
-            <video class="concept-item" controls preload="auto" muted loop autoplay onclick="openModal(this)">
-                <source src="ani4.mov" type="video/mp4">
-                Ваш браузер не поддерживает видео.
-            </video>
-            <div class="video-overlay">
-                <img src="zoom-icon.png" alt="Нажмите для увеличения">
-            </div>
-        </div>
-
-        <div class="video-container">
-            <video class="concept-item" controls preload="auto" muted loop autoplay onclick="openModal(this)">
-                <source src="ani5.mov" type="video/mp4">
-                Ваш браузер не поддерживает видео.
-            </video>
-            <div class="video-overlay">
-                <img src="zoom-icon.png" alt="Нажмите для увеличения">
-            </div>
-        </div>
-
-        <div class="video-container">
-            <video class="concept-item" controls preload="auto" muted loop autoplay onclick="openModal(this)">
-                <source src="ani6.mov" type="video/mp4">
-                Ваш браузер не поддерживает видео.
-            </video>
-            <div class="video-overlay">
-                <img src="zoom-icon.png" alt="Нажмите для увеличения">
-            </div>
-        </div>
-
-        <div class="video-container">
-            <video class="concept-item" controls preload="auto" muted loop autoplay onclick="openModal(this)">
-                <source src="ani7.mov" type="video/mp4">
-                Ваш браузер не поддерживает видео.
-            </video>
-            <div class="video-overlay">
-                <img src="zoom-icon.png" alt="Нажмите для увеличения">
-            </div>
-        </div>
-
-        <div class="video-container">
-            <video class="concept-item" controls preload="auto" muted loop autoplay onclick="openModal(this)">
-                <source src="ani8.mov" type="video/mp4">
-                Ваш браузер не поддерживает видео.
-            </video>
-            <div class="video-overlay">
-                <img src="zoom-icon.png" alt="Нажмите для увеличения">
-            </div>
-        </div>
-       
-        <div class="video-container">
-            <video class="concept-item" controls preload="auto" muted loop autoplay onclick="openModal(this)">
-                <source src="ani9.mov" type="video/mp4">
-                Ваш браузер не поддерживает видео.
-            </video>
-            <div class="video-overlay">
-                <img src="zoom-icon.png" alt="Нажмите для увеличения">
-            </div>
-        </div>
-
-      
-
-
-
-
-        
-    </div>
-    </div>
+    <script>
+    fetch("assets.json")
+      .then(r => r.json())
+      .then(data => {
+        const gallery = document.getElementById("video-gallery");
+        data.video.forEach(v => {
+          const el = document.createElement("video");
+          el.src = "assets/video/" + v;
+          el.controls = true;
+          el.className = "video-item";
+          gallery.appendChild(el);
+        });
+      });
+    </script>
 
     <div id="modal" class="modal">
         <span class="close" onclick="closeModal()">&times;</span>
@@ -269,5 +184,4 @@
         }
        
     </script>
-</body>
 </html>
