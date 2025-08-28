@@ -16,7 +16,7 @@
     fetch("assets.json")
       .then(r => r.json())
       .then(data => {
-        const gallery = document.getElementById("illustration-gallery");
+        const gallery = document.getElementById("concept-gallery");
         data.illustration.forEach(img => {
           const el = document.createElement("img");
           el.src = "assets/illustration/" + img;

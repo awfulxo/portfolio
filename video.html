@@ -106,18 +106,18 @@
 <body class="concept-page">
     <a href="index.html" class="back-link">M U K A I</a>
     <h1 class="concept-title">Animation</h1>
-    <div id="video-gallery" class="video-gallery"></div>
+    <div id="concept-gallery" class="concept-gallery"></div>
 
     <script>
     fetch("assets.json")
       .then(r => r.json())
       .then(data => {
-        const gallery = document.getElementById("video-gallery");
-        data.video.forEach(v => {
-          const el = document.createElement("video");
-          el.src = "assets/video/" + v;
+        const gallery = document.getElementById("concept-gallery");
+        data.animation.forEach(v => {
+          const el = document.createElement("img");
+          el.src = "assets/animation/" + v;
           el.controls = true;
-          el.className = "video-item";
+          el.className = "concept-item";
           gallery.appendChild(el);
         });
       });

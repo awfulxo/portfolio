@@ -10,7 +10,7 @@ function scanFolder(folder, exts) {
 const data = {
   concept: scanFolder("concept", /\.(png|jpe?g|gif|webp|svg)$/i),
   illustration: scanFolder("illustration", /\.(png|jpe?g|gif|webp|svg)$/i),
-  video: scanFolder("video", /\.(mp4|webm|ogg)$/i),
+  animation: scanFolder("animation", /\.(mp4|webm|ogg|mov)$/i),
 };
 
 fs.writeFileSync("assets.json", JSON.stringify(data, null, 2));
