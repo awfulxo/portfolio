@@ -8,6 +8,21 @@
     "con6.jpg",
     "con7.jpg"
   ],
-  "illustration": [],
-  "animation": []
+  "illustration": [
+    "Ilu1.png",
+    "Ilu2.png",
+    "Ilu4.png",
+    "Ilu5.png"
+  ],
+  "animation": [
+    "ani1.mov",
+    "ani2.mov",
+    "ani3.mov",
+    "ani4.mov",
+    "ani5.mov",
+    "ani6.mov",
+    "ani7.mov",
+    "ani8.mov",
+    "ani9.mov"
+  ]
 }
