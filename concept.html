@@ -12,6 +12,11 @@
     <h1 class="concept-title">Concept</h1>
     <div id="concept-gallery" class="concept-gallery"></div>
 
+    <div id="modal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modal-img">
+    </div>
+
     <script>
     fetch("assets.json")
       .then(r => r.json())
@@ -25,36 +30,21 @@
           gallery.appendChild(el);
         });
       });
-    </script>
-</body>
 
-    <div id="modal" class="modal">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <img class="modal-content" id="modal-img">
-    </div>
+    function openModal(src) {
+        document.getElementById("modal").style.display = "flex";
+        document.getElementById("modal-img").src = src;
+    }
 
-    <script>
-        function openModal(src) {
-            document.getElementById("modal").style.display = "flex";
-            document.getElementById("modal-img").src = src;
+    function closeModal() {
+        document.getElementById("modal").style.display = "none";
+    }
 
-            document.getElementById("modal").addEventListener("click", function (event) {
-                if (event.target !== this) {  // Проверяем, что клик был по фону, а не по видео
-                    closeModal();
-                }
-            });
+    document.getElementById("modal").addEventListener("click", function (e) {
+        if (e.target === this) {
+            closeModal();
         }
-
-        function closeModal() {
-            document.getElementById("modal").style.display = "none";
-        }
-
-
-        document.getElementById("modal").addEventListener("click", function (e) {
-            if (e.target === this) {
-                closeModal();
-            }
-        });
+    });
     </script>
 </body>
 </html>
