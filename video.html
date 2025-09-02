@@ -16,11 +16,9 @@
             transition: transform 0.3s ease-in-out;
             cursor: pointer;
         }
-
-            .concept-item:hover {
-                transform: scale(1.05);
-            }
-
+        .concept-item:hover {
+            transform: scale(1.05);
+        }
         /* Модальное окно */
         .modal {
             position: fixed;
@@ -35,14 +33,12 @@
             z-index: 1000;
             transition: opacity 0.3s ease;
         }
-
         .modal-content {
             width: 80%;
             height: 50%;
             object-fit: contain;
             border-radius: 10px;
         }
-
         .close {
             position: absolute;
             top: 10px;
@@ -52,8 +48,6 @@
             cursor: pointer;
             z-index: 2000;
         }
-        
-
         .video-menu {
             position: absolute;
             bottom: 10px;
@@ -71,7 +65,6 @@
             position: relative;
             display: inline-block;
         }
-
         .video-overlay {
             position: absolute;
             top: 50%;
@@ -79,28 +72,22 @@
             transform: translate(-50%, -50%);
             opacity: 0;
             transition: opacity 0.3s ease;
-            pointer-events: none; /* Чтобы клики проходили на видео */
+            pointer-events: none;
         }
-
         .video-container:hover .video-overlay {
             opacity: 1;
         }
-
-        /* Иконка (SVG) */
         .video-overlay img {
             width: 50px;
             height: 50px;
             filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.5));
         }
-
         video::-webkit-media-controls-fullscreen-button {
             display: none !important;
         }
-
         video::-webkit-media-controls-enclosure {
             overflow: hidden;
         }
-
     </style>
 </head>
 <body class="concept-page">
@@ -108,80 +95,66 @@
     <h1 class="concept-title">Animation</h1>
     <div id="concept-gallery" class="concept-gallery"></div>
 
-    <script>
-    fetch("assets.json")
-      .then(r => r.json())
-      .then(data => {
-        const gallery = document.getElementById("concept-gallery");
-        data.animation.forEach(v => {
-          const el = document.createElement("img");
-          el.src = "assets/animation/" + v;
-          el.controls = true;
-          el.className = "concept-item";
-          gallery.appendChild(el);
-        });
-      });
-    </script>
-
     <div id="modal" class="modal">
         <span class="close" onclick="closeModal()">&times;</span>
         <div id="modal-content-container"></div>
     </div>
 
     <script>
-        document.querySelectorAll('video').forEach(video => {
-            video.addEventListener('fullscreenchange', (event) => {
-                event.preventDefault();
-            });
-            video.addEventListener('webkitfullscreenchange', (event) => {
-                event.preventDefault();
-            });
-            video.disablePictureInPicture = true; // Блокируем режим "Картинка в картинке"
+    // Генерация видео-элементов
+    fetch("assets.json")
+      .then(r => r.json())
+      .then(data => {
+        const gallery = document.getElementById("concept-gallery");
+        data.animation.forEach(v => {
+          const video = document.createElement("video");
+          video.src = "assets/animation/" + v;
+          video.className = "concept-item";
+          video.controls = false;
+          video.muted = true;
+          video.loop = true;
+          video.addEventListener('mouseenter', () => video.play());
+          video.addEventListener('mouseleave', () => { video.pause(); video.currentTime = 0; });
+          video.addEventListener('click', () => openModal(video));
+          gallery.appendChild(video);
         });
-        // Открытие модального окна с видео
-        function openModal(videoElement) {
-            console.log("Нажато на видео: ", videoElement.src); // Логирование
+      });
 
-            var modal = document.getElementById("modal");
-            var modalContainer = document.getElementById("modal-content-container");
+    // Открытие модального окна с видео
+    function openModal(videoElement) {
+        var modal = document.getElementById("modal");
+        var modalContainer = document.getElementById("modal-content-container");
+        modalContainer.innerHTML = "";
 
-            // Удаляем предыдущее видео, если есть
-            modalContainer.innerHTML = "";
+        // Создаём новый video-элемент для модалки
+        var modalVideo = document.createElement("video");
+        modalVideo.src = videoElement.src;
+        modalVideo.className = "modal-video";
+        modalVideo.controls = true;
+        modalVideo.autoplay = true;
+        modalVideo.style.width = "90vw";
+        modalVideo.style.height = "90vh";
+        modalVideo.style.objectFit = "contain";
+        modalVideo.style.backgroundColor = "#111";
+        modalContainer.appendChild(modalVideo);
 
-            // Клонируем оригинальное видео
-            var clonedVideo = videoElement.cloneNode(true);
-            clonedVideo.classList.add("modal-video"); // Добавляем класс, если нужно
-            clonedVideo.controls = true; // Включаем управление
-            clonedVideo.autoplay = true; // Автовоспроизведение
-            // Устанавливаем размеры прямо в JS
-            clonedVideo.style.width = "90vw";  // 90% ширины окна
-            clonedVideo.style.height = "90vh"; // 90% высоты окна
-            clonedVideo.style.objectFit = "contain"; // Чтобы не обрезалось
-            clonedVideo.style.backgroundColor = "#111"; // Используем camelCase
-            //clonedVideo.style
-            // Добавляем в контейнер
-            modalContainer.appendChild(clonedVideo);
+        modal.style.display = "flex";
+    }
 
-            // Показываем модальное окно
-            modal.style.display = "flex";
-            document.getElementById("modal").addEventListener("click", function (event) {
-                if (event.target !== this) {  // Проверяем, что клик был по фону, а не по видео
-                    closeModal();
-                }
-            });
+    // Закрытие модального окна
+    function closeModal() {
+        var modal = document.getElementById("modal");
+        var modalContainer = document.getElementById("modal-content-container");
+        modalContainer.innerHTML = "";
+        modal.style.display = "none";
+    }
+
+    // Закрытие модалки при клике по фону
+    document.getElementById("modal").addEventListener("click", function (event) {
+        if (event.target === this) {
+            closeModal();
         }
-        // Закрытие модалки при клике на пустое место
-    
-        function closeModal() {
-            var modal = document.getElementById("modal");
-            var modalContainer = document.getElementById("modal-content-container");
-
-            // Очищаем контейнер (чтобы видео остановилось)
-            modalContainer.innerHTML = "";
-
-            // Закрываем модалку
-            modal.style.display = "none";
-        }
-       
+    });
     </script>
+</body>
 </html>
