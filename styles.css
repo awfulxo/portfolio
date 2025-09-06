@@ -10,6 +10,11 @@ body {
     align-items: center;
     height: 100vh;
     text-align: center;
+    background-image: url("images/background.jpg");
+    background-size: cover;      /* растянуть по экрану */
+    background-repeat: no-repeat; /* не повторять */
+    background-attachment: fixed; /* фон остаётся на месте при скролле */
+    background-position: center; /* центрировать */
 }
 
 .container {
