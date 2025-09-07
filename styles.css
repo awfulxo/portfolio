@@ -13,6 +13,7 @@ body {
 }
 
 .container {
+     margin-bottom: 110px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -20,10 +21,10 @@ body {
 
 /* Ñòèëè äëÿ çàãîëîâêà */
 h1.title {
-    font-size: 50px;
+    font-size: 80px;
     font-weight: bold;
-    letter-spacing: 10px;
-    margin-bottom: 50px;
+    letter-spacing: 12px;
+    margin-bottom: 30px;
     text-transform: uppercase;
     color: #fff;
     animation: fadeIn 2s ease-out;
@@ -51,8 +52,8 @@ h1.title {
 
 .menu-btn {
     display: inline-block;
-    padding: 15px 30px;
-    font-size: 18px;
+    padding: 20px 45px;
+    font-size: 22px;
     font-weight: bold;
     text-transform: uppercase;
     text-decoration: none;
@@ -61,7 +62,8 @@ h1.title {
     border-radius: 5px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
-    letter-spacing: 6px;
+    letter-spacing: 12px;
+       
 }
 
     /* Ýôôåêòû ïðè íàâåäåíèè */
@@ -110,6 +112,11 @@ h1.title {
 
 /* Ñòèëè äëÿ ñòðàíèöû êîíöåïòîâ */
 .concept-page {
+     background-image: url("images/background.jpg");
+    background-size: cover;      /* растянуть по экрану */
+    background-repeat: no-repeat; /* не повторять */
+    background-attachment: fixed; /* фон остаётся на месте при скролле */
+    background-position: center; /* центрировать */
     display: flex;
     flex-direction: column; /* Ýëåìåíòû èäóò ñâåðõó âíèç */
     justify-content: flex-start;
