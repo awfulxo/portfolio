@@ -12,24 +12,20 @@
     <h1 class="concept-title">Concept</h1>
     <div class="concept-gallery">
 
-        <img src="photo_11_2025-03-04_18-00-58.jpg" class="concept-item" onclick="openModal(this.src)">
 
-        <img src="photo_5_2025-03-04_18-00-58.jpg" class="concept-item" onclick="openModal(this.src)">
-    
-        <img src="photo_8_2025-03-04_18-00-58.jpg" class="concept-item" onclick="openModal(this.src)">
+<img src="images/1.png" class="concept-item" onclick="openModal(this.src)">
+<img src="images/2.png" class="concept-item" onclick="openModal(this.src)">
+<img src="images/3.png" class="concept-item" onclick="openModal(this.src)">
+<img src="images/4.png" class="concept-item" onclick="openModal(this.src)">
+<img src="images/5.jpg" class="concept-item" onclick="openModal(this.src)">
+<img src="images/6.jpg" class="concept-item" onclick="openModal(this.src)">
+<img src="images/7.jpg" class="concept-item" onclick="openModal(this.src)">
 
-        <img src="photo_10_2025-03-04_18-00-58.jpg" class="concept-item" onclick="openModal(this.src)">
-        <img src="photo_9_2025-03-04_18-00-58.jpg" class="concept-item" onclick="openModal(this.src)">
+<img src="images/9.png" class="concept-item" onclick="openModal(this.src)">
+<img src="images/10.png" class="concept-item" onclick="openModal(this.src)">        
 
 
 
-        <img src="photo_7_2025-03-04_18-00-58.jpg" class="concept-item" onclick="openModal(this.src)">
-        <img src="photo_6_2025-03-04_18-00-58.jpg" class="concept-item" onclick="openModal(this.src)">
-        <img src="photo_2025-03-04_21-26-23.jpg" class="concept-item" onclick="openModal(this.src)">
-        <img src="photo_3_2025-03-04_18-00-58.jpg" class="concept-item" onclick="openModal(this.src)">
-        <img src="photo_1_2025-03-04_18-00-58.jpg" class="concept-item" onclick="openModal(this.src)">
-        <img src="photo_2_2025-03-04_18-00-58.jpg" class="concept-item" onclick="openModal(this.src)">
-        <img src="photo_4_2025-03-04_18-00-58.jpg" class="concept-item" onclick="openModal(this.src)">
     </div>
 
     <div id="modal" class="modal">
@@ -39,20 +35,30 @@
 
     <script>
         function openModal(src) {
-            document.getElementById("modal").style.display = "flex";
-            document.getElementById("modal-img").src = src;
+    const modal = document.getElementById("modal");
+    const scrollY = window.scrollY; // текущая прокрутка страницы
 
-            document.getElementById("modal").addEventListener("click", function (event) {
+    modal.style.display = "flex";
+    modal.style.position = "absolute";
+    modal.style.top = scrollY + "px"; // привязываем к текущей позиции
+    modal.style.left = 0;
+    modal.style.width = "100%";
+    modal.style.height = "100%";
+
+    document.getElementById("modal-img").src = src;
+document.getElementById("modal").addEventListener("click", function (event) {
                 if (event.target !== this) {  // Проверяем, что клик был по фону, а не по видео
                     closeModal();
                 }
             });
-        }
+    // Блокируем скролл страницы
+    document.body.style.overflow = "hidden";
+}
 
-        function closeModal() {
-            document.getElementById("modal").style.display = "none";
-        }
-
+function closeModal() {
+    document.getElementById("modal").style.display = "none";
+    document.body.style.overflow = "";
+}
 
         document.getElementById("modal").addEventListener("click", function (e) {
             if (e.target === this) {
