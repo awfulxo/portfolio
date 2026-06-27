@@ -1,13 +1,3 @@
 {
-  "items": [
-    { "src": "videos/9.mp4" },
-    { "src": "videos/123.mp4" },
-    { "src": "videos/11.mp4" },
-    { "src": "videos/12.mp4" },
-    { "src": "videos/10.mp4" },
-    { "src": "videos/14.mp4" },
-    { "src": "videos/15.mp4" },
-    { "src": "videos/13.mp4" },
-    { "src": "videos/17.mp4" }
-  ]
+  "items": []
 }
