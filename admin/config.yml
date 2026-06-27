@@ -17,15 +17,6 @@ collections:
         fields:
           - { label: "Фото", name: items, widget: list, field: { label: "Файл", name: src, widget: image } }
 
-  - name: "illustration"
-    label: "Иллюстрации (фото)"
-    files:
-      - name: "illustration"
-        label: "Галерея иллюстраций"
-        file: "data/illustration.json"
-        fields:
-          - { label: "Фото", name: items, widget: list, field: { label: "Файл", name: src, widget: image } }
-
   - name: "animation"
     label: "Анимация (видео)"
     files:
