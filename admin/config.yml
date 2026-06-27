@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: RomanDenis/portfolio
+  repo: awfulxo/portfolio
   branch: main
   base_url: https://decap-cms-oauth-mauve.vercel.app
 
