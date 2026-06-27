@@ -1,16 +1,7 @@
 {
   "items": [
-    { "src": "images/photo_11_2025-03-04_18-00-58.jpg" },
-    { "src": "images/photo_5_2025-03-04_18-00-58.jpg" },
-    { "src": "images/photo_8_2025-03-04_18-00-58.jpg" },
-    { "src": "images/photo_10_2025-03-04_18-00-58.jpg" },
-    { "src": "images/photo_9_2025-03-04_18-00-58.jpg" },
-    { "src": "images/photo_7_2025-03-04_18-00-58.jpg" },
-    { "src": "images/photo_6_2025-03-04_18-00-58.jpg" },
-    { "src": "images/photo_2025-03-04_21-26-23.jpg" },
-    { "src": "images/photo_3_2025-03-04_18-00-58.jpg" },
-    { "src": "images/photo_1_2025-03-04_18-00-58.jpg" },
-    { "src": "images/photo_2_2025-03-04_18-00-58.jpg" },
-    { "src": "images/photo_4_2025-03-04_18-00-58.jpg" }
+    {
+      "src": "images/photo_4_2025-03-04_18-00-58.jpg"
+    }
   ]
 }
