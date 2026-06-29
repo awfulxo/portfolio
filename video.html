@@ -7,14 +7,25 @@
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <style>
+        .concept-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(550px, 1fr));
+        }
+
         .concept-item {
-            width: 400px;
-            height: 225px;
+            width: 100%;
+            height: 600px;
             object-fit: cover;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease-in-out;
             cursor: pointer;
+        }
+
+        @media (max-width: 600px) {
+            .concept-gallery {
+                grid-template-columns: 1fr;
+            }
         }
 
             .concept-item:hover {
@@ -101,19 +112,18 @@
             .then(data => {
                 const gallery = document.getElementById("gallery");
                 gallery.innerHTML = data.items
-                    .map(item => typeof item === "string" ? { src: item } : item)
-                    .filter(item => item.src)
-                    .map(item => {
-                        const style = item.size ? ` style="width:${item.size}px"` : "";
-                        const youtubeId = getYouTubeId(item.src);
+                    .map(item => typeof item === "string" ? item : item.src)
+                    .filter(src => src)
+                    .map(src => {
+                        const youtubeId = getYouTubeId(src);
                         if (youtubeId) {
                             return `
-                                <iframe class="concept-item"${style} src="https://www.youtube.com/embed/${youtubeId}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe class="concept-item" src="https://www.youtube.com/embed/${youtubeId}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             `;
                         }
                         return `
-                            <video class="concept-item"${style} controls preload="auto" muted loop autoplay onclick="openModal(this)">
-                                <source src="${item.src}" type="video/mp4">
+                            <video class="concept-item" controls preload="auto" muted loop autoplay onclick="openModal(this)">
+                                <source src="${src}" type="video/mp4">
                                 Ваш браузер не поддерживает видео.
                             </video>
                         `;
