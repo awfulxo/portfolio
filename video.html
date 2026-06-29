@@ -100,20 +100,23 @@
             .then(res => res.json())
             .then(data => {
                 const gallery = document.getElementById("gallery");
-                gallery.innerHTML = data.items.filter(item => item.src).map(item => {
-                    const youtubeId = getYouTubeId(item.src);
-                    if (youtubeId) {
+                gallery.innerHTML = data.items
+                    .map(item => typeof item === "string" ? item : item.src)
+                    .filter(src => src)
+                    .map(src => {
+                        const youtubeId = getYouTubeId(src);
+                        if (youtubeId) {
+                            return `
+                                <iframe class="concept-item" src="https://www.youtube.com/embed/${youtubeId}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            `;
+                        }
                         return `
-                            <iframe class="concept-item" src="https://www.youtube.com/embed/${youtubeId}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <video class="concept-item" controls preload="auto" muted loop autoplay onclick="openModal(this)">
+                                <source src="${src}" type="video/mp4">
+                                Ваш браузер не поддерживает видео.
+                            </video>
                         `;
-                    }
-                    return `
-                        <video class="concept-item" controls preload="auto" muted loop autoplay onclick="openModal(this)">
-                            <source src="${item.src}" type="video/mp4">
-                            Ваш браузер не поддерживает видео.
-                        </video>
-                    `;
-                }).join("");
+                    }).join("");
             });
 
         // Открытие модального окна с видео

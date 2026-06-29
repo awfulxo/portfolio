@@ -4,6 +4,9 @@ backend:
   branch: main
   base_url: https://decap-cms-oauth-mauve.vercel.app
 
+locale: "ru"
+site_url: "https://awfulxo.github.io/portfolio/"
+
 media_folder: "images"
 public_folder: "images"
 
@@ -15,7 +18,7 @@ collections:
         label: "Галерея концепта"
         file: "data/concept.json"
         fields:
-          - { label: "Фото", name: items, widget: list, summary: "{{fields.src}}", field: { label: "Файл", name: src, widget: image } }
+          - { label: "Фото", name: items, widget: list, summary: "{{src}}",field: { label: "Файл", name: src, widget: image } }
 
   - name: "animation"
     label: "Анимация (видео)"
@@ -24,4 +27,4 @@ collections:
         label: "Галерея видео"
         file: "data/animation.json"
         fields:
-          - { label: "Видео", name: items, widget: list, summary: "{{fields.src}}", field: { label: "Ссылка на YouTube (или файл)", name: src, widget: string, hint: "Вставь ссылку на YouTube-видео" } }
+          - { label: "Видео", name: items, widget: list, summary: "{{src}}",field: { label: "Ссылка на YouTube (или файл)", name: src, widget: string, hint: "Вставь ссылку на YouTube-видео" } }
