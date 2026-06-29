@@ -18,7 +18,13 @@ collections:
         label: "Галерея концепта"
         file: "data/concept.json"
         fields:
-          - { label: "Фото", name: items, widget: list, summary: "{{src}}",field: { label: "Файл", name: src, widget: image } }
+          - label: "Фото"
+            name: items
+            widget: list
+            summary: "{{src}}"
+            fields:
+              - { label: "Файл", name: src, widget: image }
+              - { label: "Ширина (px, необязательно)", name: size, widget: number, required: false, value_type: int, hint: "Оставь пустым для размера по умолчанию" }
 
   - name: "animation"
     label: "Анимация (видео)"
@@ -27,4 +33,10 @@ collections:
         label: "Галерея видео"
         file: "data/animation.json"
         fields:
-          - { label: "Видео", name: items, widget: list, summary: "{{src}}",field: { label: "Ссылка на YouTube (или файл)", name: src, widget: string, hint: "Вставь ссылку на YouTube-видео" } }
+          - label: "Видео"
+            name: items
+            widget: list
+            summary: "{{src}}"
+            fields:
+              - { label: "Ссылка на YouTube (или файл)", name: src, widget: string, hint: "Вставь ссылку на YouTube-видео" }
+              - { label: "Ширина (px, необязательно)", name: size, widget: number, required: false, value_type: int, hint: "Оставь пустым для размера по умолчанию" }
