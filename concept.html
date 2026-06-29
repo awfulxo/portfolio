@@ -18,7 +18,7 @@
     </div>
 
     <script>
-        fetch("data/concept.json")
+        fetch("data/concept.json?v=" + Date.now(), { cache: "no-store" })
             .then(res => res.json())
             .then(data => {
                 const gallery = document.getElementById("gallery");
