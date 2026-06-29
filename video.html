@@ -91,16 +91,29 @@
     </div>
 
     <script>
+        function getYouTubeId(url) {
+            const match = url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([\w-]{11})/);
+            return match ? match[1] : null;
+        }
+
         fetch("data/animation.json")
             .then(res => res.json())
             .then(data => {
                 const gallery = document.getElementById("gallery");
-                gallery.innerHTML = data.items.map(item => `
-                    <video class="concept-item" controls preload="auto" muted loop autoplay onclick="openModal(this)">
-                        <source src="${item.src}" type="video/mp4">
-                        Ваш браузер не поддерживает видео.
-                    </video>
-                `).join("");
+                gallery.innerHTML = data.items.map(item => {
+                    const youtubeId = getYouTubeId(item.src);
+                    if (youtubeId) {
+                        return `
+                            <iframe class="concept-item" src="https://www.youtube.com/embed/${youtubeId}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        `;
+                    }
+                    return `
+                        <video class="concept-item" controls preload="auto" muted loop autoplay onclick="openModal(this)">
+                            <source src="${item.src}" type="video/mp4">
+                            Ваш браузер не поддерживает видео.
+                        </video>
+                    `;
+                }).join("");
             });
 
         // Открытие модального окна с видео

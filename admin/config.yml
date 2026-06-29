@@ -15,7 +15,7 @@ collections:
         label: "Галерея концепта"
         file: "data/concept.json"
         fields:
-          - { label: "Фото", name: items, widget: list, field: { label: "Файл", name: src, widget: image } }
+          - { label: "Фото", name: items, widget: list, summary: "{{fields.src}}", field: { label: "Файл", name: src, widget: image } }
 
   - name: "animation"
     label: "Анимация (видео)"
@@ -24,4 +24,4 @@ collections:
         label: "Галерея видео"
         file: "data/animation.json"
         fields:
-          - { label: "Видео", name: items, widget: list, field: { label: "Файл", name: src, widget: file, media_folder: "/videos", public_folder: "/videos" } }
+          - { label: "Видео", name: items, widget: list, summary: "{{fields.src}}", field: { label: "Ссылка на YouTube (или файл)", name: src, widget: string, hint: "Вставь ссылку на YouTube-видео" } }
