@@ -5,34 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MUKAI</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <style>
-        body {
-            background-image: url("images/background.jpg");
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-position: center;
-        }
-    </style>
 </head>
 <body>
-    <div class="container">
-        <h1 class="title">M U K A I</h1>
+    <div class="hero-screen">
+        <div class="hero-screen__bg" aria-hidden="true"></div>
 
-        <div class="menu">
-            <a href="concept.html" class="menu-btn">Concept</a>
-            <a href="video.html" class="menu-btn">Animation</a>
+        <div class="portfolio-tag">PORTFOLIO / 2026</div>
+
+        <div class="hero-content">
+            <h1 class="brand">MUKAI</h1>
+
+            <nav class="menu" aria-label="Main navigation">
+                <a href="concept.html" class="menu-item">
+                    <span class="menu-number">01</span>
+                    <span class="menu-text">CONCEPT</span>
+                    <span class="menu-jp">コンセプト</span>
+                </a>
+                <a href="video.html" class="menu-item">
+                    <span class="menu-number">02</span>
+                    <span class="menu-text">ANIMATION</span>
+                    <span class="menu-jp">アニメーション</span>
+                </a>
+            </nav>
         </div>
     </div>
-
-    <script>
-        gsap.from(".menu-btn", {
-            opacity: 0,
-            y: 30,
-            duration: 1,
-            stagger: 0.13
-        });
-    </script>
 </body>
 </html>
