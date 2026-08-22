@@ -8,9 +8,30 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </head>
 <body class="concept-page">
-    <a href="index.html" class="back-link">M U K A I</a>
-    <h1 class="concept-title">Concept</h1>
-    <div class="concept-gallery" id="gallery"></div>
+    <main class="page-shell concept-shell">
+        <header class="page-header">
+            <a href="index.html" class="brand" aria-label="Go to homepage">MUKAI</a>
+            <nav class="page-nav" aria-label="Main navigation">
+                <a href="concept.html" class="nav-item is-active">
+                    <span class="nav-en">CONCEPT</span>
+                    <span class="nav-jp">コンセプト</span>
+                </a>
+                <a href="video.html" class="nav-item">
+                    <span class="nav-en">ANIMATION</span>
+                    <span class="nav-jp">アニメーション</span>
+                </a>
+            </nav>
+        </header>
+
+        <section class="title-block">
+            <div class="title-wrap">
+                <h1>CONCEPT</h1>
+                <div class="subtitle-jp">コンセプト</div>
+            </div>
+        </section>
+
+        <section class="concept-gallery" id="gallery"></section>
+    </main>
 
     <div id="modal" class="modal">
         <span class="close" onclick="closeModal()">&times;</span>
@@ -25,9 +46,17 @@
                 gallery.innerHTML = data.items
                     .map(item => typeof item === "string" ? item : item.src)
                     .filter(src => src)
-                    .map(src =>
-                        `<img src="${src}" class="concept-item" onclick="openModal(this.src)">`
-                    ).join("");
+                    .map(src => `
+                        <article class="work-card">
+                            <div class="work-card__image" onclick="openModal('${src}')">
+                                <img src="${src}" alt="Concept work">
+                                <div class="work-card__overlay">
+                                    <span class="overlay-icon">◌</span>
+                                </div>
+                            </div>
+                        </article>
+                    `)
+                    .join("");
             });
 
         function openModal(src) {
@@ -38,7 +67,6 @@
         function closeModal() {
             document.getElementById("modal").style.display = "none";
         }
-
 
         document.getElementById("modal").addEventListener("click", function (e) {
             if (e.target === this) {
