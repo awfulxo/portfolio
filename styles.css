@@ -366,8 +366,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 370px;
-    min-height: 370px;
+    min-height: 260px;
+    aspect-ratio: 4 / 3;
     border: 1px dashed rgba(233,233,237,.35);
     background: rgba(255, 255, 255, 0.03);
     overflow: hidden;
