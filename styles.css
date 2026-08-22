@@ -12,6 +12,7 @@ html, body {
 
 body {
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 .home-page .hero-screen {
@@ -173,10 +174,11 @@ body {
     min-height: 100vh;
     background: #0c0d13;
     color: #e9e9ed;
-    overflow: hidden;
+    overflow: visible;
 }
 
-.concept-page::before {
+.concept-page::before,
+.animation-page::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -187,7 +189,8 @@ body {
     filter: grayscale(1) contrast(1.1) brightness(0.75);
 }
 
-.concept-page::after {
+.concept-page::after,
+.animation-page::after {
     content: "";
     position: absolute;
     inset: 0;
@@ -197,10 +200,10 @@ body {
 .page-shell {
     position: relative;
     z-index: 1;
-    width: min(1280px, calc(100% - 64px));
+    width: min(1280px, calc(100% - 80px));
     margin: 0 auto;
     min-height: 100vh;
-    padding: 32px 0 40px;
+    padding: 22px 0 40px;
 }
 
 .concept-shell {
@@ -213,7 +216,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 18px 0 20px;
+    padding: 12px 0 18px;
     background: transparent;
     border: 0;
     border-bottom: 1px solid rgba(233,233,237,.12);
@@ -231,9 +234,9 @@ body {
 }
 
 .concept-page .page-header .brand {
-    font-size: clamp(2.8rem, 2.8vw, 4.5rem);
+    font-size: clamp(2.2rem, 2vw, 3.6rem);
     font-weight: 300;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.12em;
     line-height: 1;
     color: rgba(233,233,237,.95);
 }
@@ -242,13 +245,13 @@ body {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    gap: 28px;
+    gap: 22px;
     color: rgba(233,233,237,.8);
     margin-left: auto;
 }
 
 .concept-page .page-nav {
-    gap: 26px;
+    gap: 20px;
 }
 
 .nav-item {
@@ -256,7 +259,7 @@ body {
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    gap: 4px;
+    gap: 2px;
     text-decoration: none;
     color: rgba(233,233,237,.8);
     font-size: 14px;
@@ -306,12 +309,12 @@ body {
 }
 
 .title-block {
-    margin-top: 42px;
+    margin-top: 30px;
     display: flex;
     align-items: end;
     justify-content: space-between;
     gap: 20px;
-    padding: 0 18px 0 0;
+    padding: 0;
 }
 
 .title-wrap {
@@ -322,7 +325,7 @@ body {
 
 .title-wrap h1 {
     margin: 0;
-    font-size: clamp(3.4rem, 6vw, 7.2rem);
+    font-size: clamp(3rem, 5vw, 6.5rem);
     line-height: 0.92;
     letter-spacing: 0.02em;
     font-weight: 200;
@@ -331,9 +334,9 @@ body {
 }
 
 .subtitle-jp {
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 600;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.08em;
     color: rgba(233,233,237,.78);
 }
 
@@ -347,9 +350,9 @@ body {
 
 .concept-gallery {
     display: grid;
-    grid-template-columns: repeat(2, minmax(280px, 1fr));
-    gap: 26px 26px;
-    margin-top: 32px;
+    grid-template-columns: repeat(2, minmax(240px, 1fr));
+    gap: 22px 22px;
+    margin-top: 24px;
     padding-bottom: 20px;
     align-items: start;
 }
@@ -366,8 +369,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    height: clamp(260px, 24vw, 390px);
     min-height: 260px;
-    aspect-ratio: 4 / 3;
     border: 1px dashed rgba(233,233,237,.35);
     background: rgba(255, 255, 255, 0.03);
     overflow: hidden;
